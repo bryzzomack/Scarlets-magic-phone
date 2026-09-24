@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#171827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Scarlet's Magic Phone</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="phone">
+    <section class="status-bar">
+      <span id="clock">7:49</span>
+      <span>● ● ●</span>
+    </section>
+
+    <header class="app-header">
+      <div>
+        <div class="eyebrow">MAGIC PHONE</div>
+        <h1>Contacts</h1>
+      </div>
+      <button class="round-button" id="soundToggle" aria-label="Toggle sounds">🔊</button>
+    </header>
+
+    <section class="contacts" id="contacts"></section>
+
+    <div class="tip">
+      <span>✨</span>
+      <div>
+        <strong>Pick someone to call!</strong>
+        <small>Tap a character, then press CALL.</small>
+      </div>
+    </div>
+  </main>
+
+  <div class="call-screen hidden" id="callScreen">
+    <div class="call-top">
+      <button class="call-back" id="cancelCall">‹</button>
+      <span>MAGIC PHONE</span>
+      <span></span>
+    </div>
+
+    <div class="caller">
+      <div class="caller-avatar" id="callerAvatar">👑</div>
+      <div class="calling-label">CALLING</div>
+      <h2 id="callerName">Princess</h2>
+      <p id="callStatus">Connecting...</p>
+    </div>
+
+    <div class="call-actions">
+      <button class="call-action end" id="endCall" aria-label="End call">☎</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
