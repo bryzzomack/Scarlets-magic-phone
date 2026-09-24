@@ -2,55 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#171827">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Scarlet's Magic Phone</title>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Scarlet's Phone</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="phone">
+  <main class="iphone">
+    <div class="dynamic-island"></div>
+
     <section class="status-bar">
       <span id="clock">7:49</span>
-      <span>● ● ●</span>
+      <div class="status-icons"><span>▮▮▮</span><span>⌁</span><span>▰</span></div>
     </section>
 
-    <header class="app-header">
+    <header class="header">
       <div>
-        <div class="eyebrow">MAGIC PHONE</div>
+        <div class="eyebrow">FAVORITES</div>
         <h1>Contacts</h1>
       </div>
-      <button class="round-button" id="soundToggle" aria-label="Toggle sounds">🔊</button>
+      <button class="add-button" id="incomingButton" type="button" aria-label="Princess calls">☎</button>
     </header>
 
+    <section class="search">
+      <span>⌕</span>
+      <input id="searchInput" type="text" placeholder="Search" autocomplete="off">
+    </section>
+
+    <div class="section-title">MAGIC FRIENDS</div>
     <section class="contacts" id="contacts"></section>
 
-    <div class="tip">
-      <span>✨</span>
+    <div class="incoming-tip">
+      <div class="tip-icon">👸</div>
       <div>
-        <strong>Pick someone to call!</strong>
-        <small>Tap a character, then press CALL.</small>
+        <strong>Princess Call</strong>
+        <small>Tap the phone button above to pretend Princess is calling.</small>
       </div>
     </div>
+
+    <div class="empty-state hidden" id="emptyState">
+      <div>🔎</div><strong>No contacts found</strong>
+    </div>
+
+    <div class="home-indicator"></div>
   </main>
 
+  <!-- Incoming call -->
+  <div class="incoming-screen hidden" id="incomingScreen">
+    <div class="call-status-bar">
+      <span id="incomingClock">7:49</span>
+      <div>▮▮▮　⌁　▰</div>
+    </div>
+
+    <div class="incoming-content">
+      <div class="incoming-small">INCOMING CALL</div>
+      <div class="incoming-avatar">👸</div>
+      <h2>Princess</h2>
+      <p>Magic Friend</p>
+    </div>
+
+    <div class="incoming-actions">
+      <div class="incoming-action">
+        <button class="decline-button" id="declineCall" type="button">☎</button>
+        <span>Decline</span>
+      </div>
+      <div class="incoming-action">
+        <button class="answer-button" id="answerCall" type="button">☎</button>
+        <span>Answer</span>
+      </div>
+    </div>
+
+    <div class="call-home-indicator"></div>
+  </div>
+
+  <!-- Connected call -->
   <div class="call-screen hidden" id="callScreen">
-    <div class="call-top">
-      <button class="call-back" id="cancelCall">‹</button>
-      <span>MAGIC PHONE</span>
-      <span></span>
+    <div class="call-status-bar">
+      <span id="callClock">7:49</span>
+      <div>▮▮▮　⌁　▰</div>
     </div>
 
-    <div class="caller">
-      <div class="caller-avatar" id="callerAvatar">👑</div>
-      <div class="calling-label">CALLING</div>
+    <div class="calling-content">
+      <div class="call-avatar" id="callerAvatar">👸</div>
+      <div class="calling-label" id="callLabel">CONNECTED</div>
       <h2 id="callerName">Princess</h2>
-      <p id="callStatus">Connecting...</p>
+      <p id="callStatus">Princess is talking…</p>
     </div>
 
-    <div class="call-actions">
-      <button class="call-action end" id="endCall" aria-label="End call">☎</button>
+    <div class="call-controls">
+      <button class="call-control" id="muteButton" type="button">
+        <span>🎙️</span><small>mute</small>
+      </button>
+      <button class="end-call" id="endCall" type="button" aria-label="End call">☎</button>
+      <button class="call-control" id="speakerButton" type="button">
+        <span>🔊</span><small>speaker</small>
+      </button>
     </div>
+
+    <div class="call-home-indicator"></div>
   </div>
 
   <script src="app.js"></script>

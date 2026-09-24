@@ -1,124 +1,52 @@
-:root {
-  --bg: #0f1020;
-  --panel: #191a2d;
-  --panel2: #23243b;
-  --text: #fff;
-  --muted: #a9abc0;
-  --pink: #ff5fa2;
-  --purple: #9c6cff;
-  --green: #52df9a;
-}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--blue:#0a84ff;--green:#30d158;--red:#ff453a;--bg:#f2f2f7}
+html,body{margin:0;min-height:100%;background:#111;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:#111}
+body{display:flex;justify-content:center;min-height:100vh}
+.iphone{position:relative;width:min(100%,500px);min-height:100vh;overflow:hidden;background:radial-gradient(circle at 85% 5%,rgba(255,220,235,.9),transparent 25%),radial-gradient(circle at 10% 20%,rgba(220,235,255,.8),transparent 28%),var(--bg);padding:max(8px,env(safe-area-inset-top)) 18px max(22px,env(safe-area-inset-bottom))}
+.dynamic-island{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:112px;height:30px;border-radius:20px;background:#000;z-index:4}
+.status-bar,.call-status-bar{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;font-size:14px;font-weight:650}
+.status-icons{display:flex;gap:8px;font-size:12px}
+.header{display:flex;align-items:flex-end;justify-content:space-between;padding:18px 2px 12px}
+.eyebrow{color:#777;font-size:12px;font-weight:750;letter-spacing:.5px}
+h1{margin:2px 0 0;font-size:34px;letter-spacing:-1.2px}
+.add-button{width:40px;height:40px;border:0;border-radius:50%;background:var(--blue);color:white;font-size:22px;cursor:pointer;box-shadow:0 5px 15px #0a84ff40}
+.search{height:38px;border-radius:12px;background:#76768024;display:flex;align-items:center;padding:0 11px;color:#777;margin-bottom:22px}
+.search span{font-size:23px;margin-right:6px}.search input{width:100%;border:0;outline:0;background:transparent;font-size:16px}
+.section-title{color:#6d6d72;font-size:13px;font-weight:700;margin:0 4px 8px}
+.contacts{background:#ffffffe0;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px #0000000f;backdrop-filter:blur(18px)}
+.contact{width:100%;border:0;background:transparent;display:flex;align-items:center;padding:13px 15px;text-align:left;cursor:pointer;color:#111}
+.contact:active{background:#76768024}.contact+.contact{border-top:1px solid #3c3c4326}
+.avatar,.incoming-avatar,.call-avatar{display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fff9,transparent 27%),#d85f9b}
+.avatar{width:62px;height:62px;flex:0 0 62px;font-size:35px}
+.contact-info{min-width:0;flex:1;padding-left:13px}.contact h3{margin:0;font-size:18px;font-weight:600}.contact small{display:block;color:#777;font-size:14px;margin-top:3px}
+.chevron{color:#aaa;font-size:25px;padding-left:8px}
+.incoming-tip{display:flex;align-items:center;gap:12px;margin-top:16px;padding:14px;border-radius:16px;background:#ffffffe0}
+.tip-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#d85f9b;font-size:25px}
+.incoming-tip strong,.incoming-tip small{display:block}.incoming-tip small{color:#777;margin-top:3px;font-size:13px}
+.empty-state{text-align:center;padding:40px;color:#777}.empty-state div{font-size:38px}.hidden{display:none!important}
+.home-indicator,.call-home-indicator{position:absolute;bottom:max(7px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:135px;height:5px;border-radius:5px;background:#111;opacity:.75}
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+/* incoming */
+.incoming-screen,.call-screen{position:fixed;inset:0;z-index:50;color:#fff;display:flex;flex-direction:column;padding:max(8px,env(safe-area-inset-top)) 22px max(20px,env(safe-area-inset-bottom))}
+.incoming-screen{background:radial-gradient(circle at 50% 25%,#604477,transparent 34%),linear-gradient(#171721,#050509)}
+.incoming-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.incoming-small{font-size:12px;letter-spacing:3px;color:#aaa;font-weight:700;margin-bottom:24px}
+.incoming-avatar{width:170px;height:170px;font-size:92px;border:4px solid #ffffff2e;box-shadow:0 20px 60px #0008}
+.incoming-content h2{font-size:36px;font-weight:600;margin:20px 0 3px}.incoming-content p{color:#aaa;margin:0}
+.incoming-actions{display:flex;justify-content:space-around;padding:20px 18px 42px}
+.incoming-action{display:flex;flex-direction:column;align-items:center;gap:9px;font-size:14px;color:#ccc}
+.decline-button,.answer-button{width:72px;height:72px;border:0;border-radius:50%;color:#fff;font-size:30px;transform:rotate(135deg);cursor:pointer}
+.decline-button{background:var(--red)}.answer-button{background:var(--green)}
+.call-home-indicator{background:#fff;opacity:.8}
 
-body {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 50% -10%, #5d3a80 0, transparent 38%),
-    linear-gradient(180deg, #17172a, #0b0c16);
-}
-
-.phone {
-  width: min(100%, 520px);
-  min-height: 100vh;
-  padding: env(safe-area-inset-top) 18px env(safe-area-inset-bottom);
-}
-
-.status-bar {
-  height: 36px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #ddd;
-  font-size: 13px;
-  padding: 0 4px;
-}
-
-.app-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 4px 22px;
-}
-.eyebrow { color: var(--pink); font-size: 11px; font-weight: 800; letter-spacing: 2px; }
-h1 { margin: 3px 0 0; font-size: 34px; letter-spacing: -1px; }
-
-.round-button, .call-back {
-  border: 0; color: white; background: #282941; border-radius: 50%;
-  width: 44px; height: 44px; font-size: 20px; cursor: pointer;
-}
-
-.contacts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-
-.contact {
-  position: relative;
-  border: 1px solid #30314b;
-  border-radius: 24px;
-  background: linear-gradient(145deg, #24253d, #17182b);
-  padding: 18px 14px 16px;
-  min-height: 190px;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.2);
-  transition: transform .12s ease, border-color .12s ease;
-}
-.contact:active { transform: scale(.97); }
-.contact:hover { border-color: #5d5e83; }
-.avatar {
-  width: 94px; height: 94px; margin: 0 auto 12px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 52px;
-  background: radial-gradient(circle at 35% 25%, #fff8, transparent 30%), var(--avatar-bg);
-  box-shadow: inset 0 0 0 3px #ffffff22, 0 8px 22px #0005;
-}
-.contact h3 { margin: 0; font-size: 18px; }
-.contact small { display: block; color: var(--muted); margin-top: 4px; }
-
-.call-button {
-  margin-top: 12px; border: 0; border-radius: 999px; padding: 9px 17px;
-  color: white; background: linear-gradient(90deg, var(--pink), var(--purple));
-  font-weight: 800; cursor: pointer;
-}
-
-.tip {
-  display: flex; gap: 12px; align-items: center; margin: 18px 2px 30px;
-  padding: 15px; border-radius: 18px; background: #191a2a; color: #fff;
-}
-.tip span { font-size: 28px; }
-.tip strong, .tip small { display: block; }
-.tip small { color: var(--muted); margin-top: 3px; }
-
-.call-screen {
-  position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column;
-  background:
-    radial-gradient(circle at 50% 30%, #533c75 0, transparent 35%),
-    linear-gradient(180deg, #24233e, #0d0e19);
-  padding: env(safe-area-inset-top) 22px env(safe-area-inset-bottom);
-}
-.hidden { display: none !important; }
-.call-top { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; text-align: center; padding-top: 12px; font-size: 11px; font-weight: 800; letter-spacing: 2px; }
-.call-back { justify-self: start; font-size: 32px; line-height: 1; }
-.caller { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.caller-avatar {
-  width: 190px; height: 190px; border-radius: 50%; display: grid; place-items: center;
-  font-size: 105px; background: #ffffff14; border: 4px solid #ffffff20;
-  box-shadow: 0 20px 60px #0008;
-}
-.calling-label { margin-top: 32px; font-size: 11px; letter-spacing: 3px; color: #c9c8d9; font-weight: 800; }
-.caller h2 { margin: 8px 0 4px; font-size: 36px; }
-.caller p { margin: 0; color: #bbbcc9; }
-.call-actions { display: flex; justify-content: center; padding: 30px 0 45px; }
-.call-action {
-  width: 76px; height: 76px; border: 0; border-radius: 50%; color: white;
-  font-size: 32px; cursor: pointer;
-}
-.call-action.end { background: #e94862; transform: rotate(135deg); }
-
-@media (max-width: 370px) {
-  .contacts { gap: 10px; }
-  .contact { min-height: 175px; padding: 14px 8px; }
-  .avatar { width: 78px; height: 78px; font-size: 42px; }
-}
+/* connected */
+.call-screen{background:radial-gradient(circle at 50% 27%,#6b55a0c0,transparent 30%),linear-gradient(#171721,#050509)}
+.calling-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.call-avatar{width:170px;height:170px;font-size:92px;border:4px solid #ffffff2e;box-shadow:0 20px 60px #0008}
+.calling-label{margin-top:28px;color:#aaa;font-size:12px;letter-spacing:2.5px;font-weight:700}
+.calling-content h2{margin:8px 0 2px;font-size:34px;font-weight:600}.calling-content p{margin:0;color:#aaa;font-size:15px}
+.call-controls{display:flex;justify-content:center;align-items:center;gap:48px;padding:20px 0 35px}
+.call-control{width:64px;height:64px;border:0;border-radius:50%;background:#303039;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}
+.call-control span{font-size:22px}.call-control small{font-size:10px;margin-top:2px}
+.end-call{width:74px;height:74px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:31px;transform:rotate(135deg);cursor:pointer}
+@media(min-width:600px){.iphone{min-height:900px;margin:20px auto;border-radius:42px;box-shadow:0 30px 100px #00000073}.home-indicator{position:absolute}}

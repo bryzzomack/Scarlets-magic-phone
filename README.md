@@ -1,70 +1,51 @@
-# Scarlet's Magic Phone
+# Scarlet's iPhone-Style Magic Phone
 
-A simple, child-friendly pretend phone that can be hosted for free with **GitHub Pages**.
+A kid-friendly pretend iPhone contact app for GitHub Pages.
 
-## Features
+## Princess outgoing call
 
-- Phone-style full-screen interface
-- Character/avatar contact buttons
-- Princess, Unicorn, Mermaid, Fairy, Superhero and Santa contacts
-- Tap a contact → animated call screen → your prerecorded audio plays
-- No server, database, login, API, analytics, or third-party JavaScript
-- Works as a static GitHub Pages site
-- Audio files stay in your repository
+Tap Princess in Contacts. The app shows an iPhone-style calling screen and plays:
 
-## Add your recordings
+`audio/princess.mp3`
 
-Put your MP3 files in the `audio` folder using these names:
+## Princess incoming call
 
-- `princess.mp3`
-- `unicorn.mp3`
-- `mermaid.mp3`
-- `fairy.mp3`
-- `superhero.mp3`
-- `santa.mp3`
+Tap the blue phone button in the Contacts header.
 
-You can use fewer characters if you want. To remove a contact, delete its entry from `app.js`.
+A realistic incoming-call screen appears:
 
-### Important
+- INCOMING CALL
+- Princess avatar
+- Decline button
+- Answer button
 
-The browser will not allow the app to magically record or upload audio. You supply the recordings yourself, and the app simply plays them locally from the repository.
+Tap **Answer** and the Princess recording plays.
 
-## Put it on GitHub Pages
+## Add the recording
 
-1. Create a new GitHub repository, for example `scarlet-magic-phone`.
-2. Upload `index.html`, `styles.css`, `app.js`, and the `audio` folder.
-3. Open the repository's **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select your main branch and `/ (root)`.
-6. Save.
-7. GitHub will give you the Pages URL.
+Create an `audio` folder in the repository and upload:
 
-## Changing characters
+`princess.mp3`
 
-Open `app.js` and edit the `contacts` array. Each contact looks like:
+## GitHub Pages
 
-```js
-{
-  name: "Princess",
-  subtitle: "Royal Friend",
-  avatar: "👸",
-  bg: "#c95d9b",
-  audio: "audio/princess.mp3"
-}
-```
+Upload `index.html`, `styles.css`, `app.js`, and the `audio` folder to the same `main` branch.
 
-You can change the name, emoji, background color, and audio filename.
+Then:
+
+Repository → Settings → Pages → Deploy from a branch → main → / (root)
 
 ## Security / privacy
 
-This is intentionally a static, self-contained app:
+This app is intentionally static:
 
 - No external libraries
-- No external scripts
+- No server
+- No database
+- No login
 - No API calls
-- No account information
-- No microphone access
-- No camera access
+- No microphone
+- No camera
 - No tracking
 
-Anyone who can access the GitHub Pages URL can access the audio files because GitHub Pages is public. Do not put anything private or sensitive in the repository.
+GitHub Pages is public, so audio files in the repository are public to anyone who can access the site.
